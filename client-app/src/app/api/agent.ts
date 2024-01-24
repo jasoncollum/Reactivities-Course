@@ -31,7 +31,7 @@ axios.interceptors.response.use(async response => {
         router.navigate('/not-found');
       }
       if (data.errors) {
-        const modalStateErrors = [];
+        const modalStateErrors: string[] = [];
         for (const key in data.errors) {
           if (data.errors[key]) {
             modalStateErrors.push(data.errors[key]);
@@ -93,7 +93,8 @@ const Profiles = {
     })
   },
   setMainPhoto: (id: string) => requests.post(`/photos/${id}/setMain`, {}),
-  deletePhoto: (id: string) => requests.del<void>(`/photos/${id}`)
+  deletePhoto: (id: string) => requests.del<void>(`/photos/${id}`),
+  updateProfile: (profile: Partial<Profile>) => requests.put<void>(`/profiles`, profile),
 }
 
 const agent = {
