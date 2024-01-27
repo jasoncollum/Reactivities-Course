@@ -1,5 +1,3 @@
-using Apllication.Activities;
-
 namespace Application.Activities
 {
     public class ActivityDto
